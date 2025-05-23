@@ -1,11 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { APITester } from "./APITester";
-import "./index.css";
+import { APITester } from "../../APITester";
+import "@/index.css";
 
-import logo from "./logo.svg";
-import reactLogo from "./react.svg";
+import logo from "@/assets/logo.svg";
+import reactLogo from "@/assets/react.svg";
 
-export function App() {
+export function Home() {
   return (
     <div className="container mx-auto p-8 text-center relative z-10">
       <div className="flex justify-center items-center gap-8 mb-8">
@@ -36,4 +36,4 @@ export function App() {
   );
 }
 
-export default App;
+export default Home;
