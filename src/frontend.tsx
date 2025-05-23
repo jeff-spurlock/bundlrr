@@ -4,16 +4,31 @@ import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
+  type RouteObject
 } from "react-router";
-import { routes } from "./routes";
 import RootLayout from "./components/layouts/RootLayout";
+import { Home } from "./components/views/Home";
+import { About } from "./components/views/About";
+
+export const routes: RouteObject[] = [
+  {
+      path: "/",
+      element: <Home />,
+  },
+  {
+      path: "/about",
+      element: <About />,
+  }
+]
 
 export const router = createBrowserRouter([
   {
     Component: RootLayout,
     children: routes.map((routeItem)=>{
-      const { name, ...route } = routeItem;
-      return route;
+      return {
+        path: routeItem.path,
+        element: routeItem.element,
+      }
     })
   }
 ])

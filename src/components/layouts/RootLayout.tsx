@@ -1,17 +1,18 @@
-import { Link, Outlet } from "react-router";
-import {routes} from '@/routes'
+import { Outlet } from "react-router";
+import { SidebarProvider, SidebarTrigger } from "../ui/sidebar";
+import { AppSidebar } from "../supporting/app-sidebar";
 
 const RootLayout = () => {
   return (
-    <div>
-        <h1>Root Layout</h1>
-        <nav>
-            {routes.map((route) => (
-                <Link key={route.path} to={route.path}>{route.name}</Link>
-            ))}
-        </nav>
-      <Outlet />
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger className="m-2"/>
+        <div className="px-4">
+            <Outlet />
+        </div>
+      </main>
+    </SidebarProvider>
   );
 };
 
